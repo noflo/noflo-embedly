@@ -1,7 +1,7 @@
 {
   "name": "noflo-embedly",
   "description": "Embed.ly components for NoFlo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Henri Bergius",
     "email": "henri.bergius@iki.fi"
@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": {
-    "noflo": "~0.4.0",
+    "noflo": "~0.5.0",
     "embedly": "^1.0.2"
   },
   "devDependencies": {
