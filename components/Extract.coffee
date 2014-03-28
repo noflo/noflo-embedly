@@ -24,11 +24,14 @@ class Extract extends noflo.AsyncComponent
     , (err, api) =>
       return callback err if err
 
+      @outPorts.out.connect()
       api.extract
         url: url
         format: 'json'
       , (err, data) =>
-        return callback err if err
+        if err
+          @outPorts.out.disconnect()
+          return callback err
 
         @outPorts.out.beginGroup url
         @outPorts.out.send data
