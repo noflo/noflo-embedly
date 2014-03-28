@@ -32,6 +32,9 @@ class Extract extends noflo.AsyncComponent
         if err
           @outPorts.out.disconnect()
           return callback err
+        if data.length is 1 and data[0].type is 'error'
+          @outPorts.out.disconnect()
+          return callback new Error data[0].error_message
 
         @outPorts.out.beginGroup url
         @outPorts.out.send data
