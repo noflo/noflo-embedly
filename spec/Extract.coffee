@@ -44,3 +44,4 @@ describe 'Extract component', ->
 
       key.send process.env.EMBEDLY_API_TOKEN
       url.send 'http://bergie.iki.fi/blog/meego-diaspora/'
+      url.disconnect()

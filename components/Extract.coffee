@@ -39,7 +39,6 @@ class Extract extends noflo.AsyncComponent
         @outPorts.out.beginGroup url
         @outPorts.out.send data
         @outPorts.out.endGroup()
-        @outPorts.out.disconnect()
         callback()
 
 exports.getComponent = -> new Extract
