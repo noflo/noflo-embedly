@@ -1,6 +1,8 @@
 noflo = require 'noflo'
 embedly = require 'embedly'
 
+# @runtime noflo-nodejs
+
 class Extract extends noflo.AsyncComponent
   constructor: ->
     @token = ''
@@ -18,7 +20,6 @@ class Extract extends noflo.AsyncComponent
   doAsync: (url, callback) ->
     unless @token
       return callback new Error 'Embed.ly API token required'
-
     embed = new embedly
       key: @token
     , (err, api) =>
