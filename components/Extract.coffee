@@ -26,6 +26,7 @@ exports.getComponent = ->
     in: ['url']
     out: 'out'
     async: true
+    forwardGroups: true
   , (url, groups, out, callback) ->
     unless c.token
       return callback new Error 'Embed.ly API token required'
