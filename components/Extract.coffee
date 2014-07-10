@@ -48,4 +48,6 @@ exports.getComponent = ->
         out.endGroup()
         callback()
 
+  noflo.helpers.MultiError c
+
   c
