@@ -29,6 +29,7 @@ describe 'Extract component', ->
 
   describe 'extracting an article', ->
     it 'should return valid contents', (done) ->
+      @timeout 30000
       unless process.env.EMBEDLY_API_TOKEN
         chai.expect(false).to.equal true
         return done()
