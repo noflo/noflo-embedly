@@ -16,6 +16,10 @@ exports.getComponent = ->
   c.inPorts.add 'url',
     description: 'URL to extract'
     datatype: 'string'
+  c.inPorts.add 'maxwidth',
+    description: 'Maximum width for images in result'
+    datatype: 'integer'
+    default: 1000
   c.outPorts.add 'out',
     datatype: 'object'
   c.outPorts.add 'error',
@@ -24,6 +28,7 @@ exports.getComponent = ->
 
   noflo.helpers.WirePattern c,
     in: ['url']
+    params: ['maxwidth']
     out: 'out'
     async: true
     forwardGroups: true
@@ -34,9 +39,9 @@ exports.getComponent = ->
       key: c.token
     , (err, api) ->
       return callback err if err
-      api.extract
-        url: url
-        format: 'json'
+      params = JSON.parse JSON.stringify c.params
+      params.url = url
+      api.extract params
       , (err, data) ->
         if err
           return callback err
