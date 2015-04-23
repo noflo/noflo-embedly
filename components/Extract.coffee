@@ -48,6 +48,8 @@ exports.getComponent = ->
         if data.length is 1 and data[0].type is 'error'
           return callback new Error data[0].error_message
 
+        data.provider = 'embed.ly'
+
         out.beginGroup url
         out.send data
         out.endGroup()
