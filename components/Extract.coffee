@@ -37,24 +37,17 @@ exports.getComponent = ->
       return callback new Error 'Embed.ly API token required'
     embed = new embedly
       key: c.token
-    , (err, api) ->
-      return callback err if err
-      params = JSON.parse JSON.stringify c.params
-      params.url = url
-      api.extract params
-      , (err, data) ->
-        if err
-          return callback err
-        if data.length is 1 and data[0].type is 'error'
-          return callback new Error data[0].error_message
+    params = JSON.parse JSON.stringify c.params
+    params.url = url
+    api.extract params, (err, data) ->
+      if err
+        return callback err
+      if data.length is 1 and data[0].type is 'error'
+        return callback new Error data[0].error_message
 
-        data.provider = 'embed.ly'
+      data.provider = 'embed.ly'
 
-        out.beginGroup url
-        out.send data
-        out.endGroup()
-        callback()
-
-  noflo.helpers.MultiError c
-
-  c
+      out.beginGroup url
+      out.send data
+      out.endGroup()
+      callback()
