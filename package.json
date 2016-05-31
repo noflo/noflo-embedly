@@ -10,12 +10,7 @@
     "type": "git",
     "url": "git://github.com/noflo/noflo-embedly.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "undefined/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "dependencies": {
     "noflo": "0.5.22",
     "embedly": "1.0.2"
@@ -37,5 +32,5 @@
   "scripts": {
     "test": "grunt test"
   },
-  "keywords": []
+  "keywords": ["noflo", "embedly"]
 }
