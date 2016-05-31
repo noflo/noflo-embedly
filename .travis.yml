@@ -1,8 +1,16 @@
 language: node_js
 node_js:
-- "4.2"
+- '4.2'
 before_script:
 - npm install -g grunt-cli
 env:
   global:
     secure: I83IivOX9Xw76+EtHm6/x+la+82+U2VgV27xEKfBzY4qt1FSKgc0/wXJCCdLwzZM6vOFlJ3FLzqS30jXS59cCiUGSs73QqA1r9NC8LGalgTmzq8WRI/tuo6hwDCh6IdqQ9t131J2GltgS0zJqk3dpAhqLgKbuW6dOfO2XKyijYQ=
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: XWczwgstygyOlpK8cY0QnECp8WwIsRYFtxG09wuUmIrY/iG6bBAE94i5kFAAyQes+zNxOO5EpES7ipqW9DGPg/FooyiryVtKYAE0RU6H7dO6rgYauB+2vSGcdskmJ29RbW7G4v1lvYuRhZs6l2PnBtZFVfssOF+gLyRgNIEKSnM=
+  on:
+    tags: true
+    repo: noflo/noflo-embedly
