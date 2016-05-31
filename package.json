@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "noflo": "~0.5.22",
-    "embedly": "~1.0.4"
+    "embedly": "~2.0.1"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
