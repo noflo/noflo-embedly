@@ -35,7 +35,7 @@ exports.getComponent = ->
   , (url, groups, out, callback) ->
     unless c.token
       return callback new Error 'Embed.ly API token required'
-    embed = new embedly
+    api = new embedly
       key: c.token
     params = JSON.parse JSON.stringify c.params
     params.url = url
