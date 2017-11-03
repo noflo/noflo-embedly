@@ -7,12 +7,10 @@ exports.getComponent = ->
   c = new noflo.Component
   c.icon = 'cloud-download'
   c.description = 'Extract contents from URL using Embed.ly'
-  c.token = null
   c.inPorts.add 'token',
     description: 'Embed.ly API token'
     datatype: 'string'
-    process: (event, payload) ->
-      c.token = payload if event is 'data'
+    required: true
   c.inPorts.add 'url',
     description: 'URL to extract'
     datatype: 'string'
@@ -28,16 +26,17 @@ exports.getComponent = ->
 
   noflo.helpers.WirePattern c,
     in: ['url']
-    params: ['maxwidth']
+    params: ['token', 'maxwidth']
     out: 'out'
     async: true
     forwardGroups: true
   , (url, groups, out, callback) ->
-    unless c.token
+    unless c.params.token
       return callback new Error 'Embed.ly API token required'
     api = new embedly
-      key: c.token
+      key: c.params.token
     params = JSON.parse JSON.stringify c.params
+    delete params.token
     params.url = url
     api.extract params, (err, data) ->
       if err
